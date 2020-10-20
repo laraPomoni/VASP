@@ -2,10 +2,10 @@ require('dotenv').config();
 
 const express = require("express");
 const Moment = require("moment");
-const config = require("./config/default.json");
+const config = require("config");
 
-const PORT = process.env.PORT;
-const HOST = process.env.HOST;
+const PORT = config.get('configuration.port');
+const HOST = config.get('configuration.host');
 
 const app = express();
 app.get('/', (req, res) => {
