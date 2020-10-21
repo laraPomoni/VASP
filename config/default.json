@@ -2,5 +2,9 @@
     "configuration": {
         "port": 8000,
         "host": "localhost"
+    },
+    "authentication": {
+        "username": "pomoni.lara@gmail.com",
+        "password": "Pomoni01?"
     }
 }
