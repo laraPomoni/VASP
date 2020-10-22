@@ -1,47 +1,51 @@
 # VASP - Viabilità agro-silvo-pastorale
 
+## Il progetto
+
+ - [Spiegazione generale](#Spiegazione-generale)
+ - [Il codice](#building-apis)
+ - [API pubbliche](#API-pubbliche)
+ - [Librerie e tools](#librerie)
+ - [Contattami](#deploying)
+
+
+## Spiegazione generale
+
 Sul territorio italiano sono presenti diverse
 strade ASP che permettono la circolazione dei soli
 veicoli in possesso di permessi assegnati dai comuni o associazioni titolari.
 Le strade ASP hanno determinate caratteristiche:
+
 • Nome
+
 • Luogo di partenza
+
 • Luogo di arrivo
+
 • Anno di realizzazione
+
 • Lunghezza
+
 • Classe ➔ le classi di transitabilità vengono definite dalla Regione Lombardia in base
 alle caratteristiche della strada
 (https://www.regione.lombardia.it/wps/portal/istituzionale/HP/DettaglioRedazionale/servizi-e-informazioni/Imprese/Imprese-agricoleBoschi-e-foreste/normativa-boschi-e-foreste/viabilita-agro-silvo-pastorale/viabilita-agro-silvo-pastorale)
 
 • Stato della strada ➔ Esse possono essere aperte o chiuse in base a due fattori:
+
 o Stagione di chiusura (normalmente da novembre ad aprile)
+
 o Situazione di emergenza (la strada non è agibile per frane, massi o incidenti)
+
 • Descrizione (emergenza, in manutenzione, accessibile, ...)
+
 • Data di apertura
+
 • Data di chiusura
+
 Aperture e chiusure delle strade vengono gestite tramite una sbarra il cui funzionamento,
 attualmente, non è automatizzato.
 
-## Il progetto
-
- - [Spiegazione generale](#Spiegazione-generale)
- - [Il codice](#building-apis)
- - [API pubbliche](#quick-reference)
- - [Contattami](#deploying)
- - [Librerie e tools](#librerie)
-
-
-## Spiegazione-generale
-
-This project is using several libraries and frameworks:
-
- - [Rails 3.2](http://rubyonrails.org/) - Web Framework
- - [Grape](http://rdoc.info/github/intridea/grape) - API endpoints
- - [Devise](https://github.com/plataformatec/devise) - Authentication
- - [RailsAdmin](https://github.com/sferik/rails_admin) - Database dashboard
- - [MiniTest](https://github.com/seattlerb/minitest) - Unit testing
-
-## Installation
+## API pubbliche
 
 ### Dependencies
 
@@ -128,7 +132,7 @@ $ rails server
 This starts your API application at <http://localhost:3000> so you
 can try it locally. Try going to <http://localhost:3000/api/v1/sessions>.
 
-## Building APIs
+## Librerie
 
 ### Define User Stories
 

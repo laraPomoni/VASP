@@ -11,7 +11,7 @@ const config = require('config');
 
 function authenticateUser(obj){
     if(obj.username == config.get("authentication.username") && obj.password == config.get("authentication.password")){
-        return {code: 200, message: "OK"};
+        return next();
     }else{
         return {code: 401, message: "unauthorized"}
     }
