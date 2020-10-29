@@ -11,10 +11,9 @@
 
 ## Spiegazione generale
 
-Sul territorio italiano sono presenti diverse
-strade ASP che permettono la circolazione dei soli
-veicoli in possesso di permessi assegnati dai comuni o associazioni titolari.
-Le strade ASP hanno determinate caratteristiche:
+Le strade agro-silvo-pastorali sono strade messe a disposizione da associazioni, comuni o enti privati per la circolazione di mezzi con destinazione a malghe, alpeggi o pascoli.
+
+Sul territorio italiano sono presenti diverse strade ASP che permettono la circolazione dei soli veicoli in possesso di permessi assegnati dai comuni o associazioni titolari. Le strade ASP hanno determinate caratteristiche:
 
 • Nome
 
@@ -32,9 +31,9 @@ alle caratteristiche della strada
 
 • Stato della strada ➔ Esse possono essere aperte o chiuse in base a due fattori:
 
-o Stagione di chiusura (normalmente da novembre ad aprile)
+• Stagione di chiusura (normalmente da novembre ad aprile)
 
-o Situazione di emergenza (la strada non è agibile per frane, massi o incidenti)
+• Situazione di emergenza (la strada non è agibile per frane, massi o incidenti)
 
 • Descrizione (emergenza, in manutenzione, accessibile, ...)
 
@@ -47,4 +46,4 @@ attualmente, non è automatizzato.
 
 ## API pubbliche
 
-Attenzione! lavori in corso...
+Attenzione, lavori in corso!

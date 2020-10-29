@@ -12,13 +12,19 @@ const HOST = config.get('configuration.host');
 
 const app = express();
 
-var streets = require('./API-PUBBLICHE/routes/strade');
+var streets = require('./app/API-PUBBLICHE/routes.js');
 
 app.get('/', (req, res) => {
   res.send('Hello World');
 });
 
-//app.use('/strade', auth.authenticateUser, streets);
+app.use('/street', streets);
+
+// catch 404 and forward to error handler
+app.use(function(req, res, next) {
+  res.status(404);
+  res.end();
+});
 
 app.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);

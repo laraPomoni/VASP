@@ -5,5 +5,5 @@ function getStreetsByCmn(cmnId){
 }
 
 module.exports = {
-    getStreetsByCmn
+    getStreetsByCmn,
 }
