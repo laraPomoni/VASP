@@ -1,4 +1,4 @@
-# VASP - Viabilità agro-silvo-pastorale
+# VASP Viabilità agro-silvo-pastorale
 
 ## Il progetto
 
