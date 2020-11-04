@@ -6,5 +6,11 @@
     "authentication": {
         "username": "***********@gmail.com",
         "password": "**********"
-    }
+    },
+	"couchbase_vasp" : {
+		"connectionString" : "couchbase://localhost",
+		"username" : "LaraPomoni",
+		"password" : "Pomoni01?",
+		"bucket_name" : "VASP"
+	}
 }

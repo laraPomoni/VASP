@@ -1,14 +1,8 @@
 var express = require("express");
 var app = express();
-var checker = require("./checker");
+const streets = require('./API-PUBBLICHE/streets.js');
 
-app.get("/streets", function(req, res) {
-
-  var string   = req.query.value;
-  var result = checker.stringValidator(string);
-  res.send(JSON.stringify(result));
-
-});
+app.use("/streets", streets);
 
 app.get("/numberValidator", function(req, res) {
 
@@ -19,3 +13,5 @@ app.get("/numberValidator", function(req, res) {
 });
 
 app.listen(3000);
+
+module.exports = app;

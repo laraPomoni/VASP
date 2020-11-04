@@ -13,7 +13,7 @@ describe("VASP API", function(){
     })
 
     //import streets tests
-    require('./streets/streets.js');
+    //require('./controllers/streets.js');
     
 
     describe(`[Couchbase VASP] Closing the connection with couchbase on ${config.get('couchbase_vasp.connectionString')}`, function(){
