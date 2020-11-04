@@ -40,30 +40,22 @@ app.use(function(req, res, next) {
 
 //////////////////// SERVER START ///////////////////
 
-var servicesStatus = {
-  couchbaseVaspOk: false,
-};
-
-process.on('couchbase_vasp_connected', function(){
-  servicesStatus.couchbaseVaspOk = true;
-});
-
 function startServer(){ // quando mi sono collegato al bucket metto il server in ascolto
-  if(!Object.values(servicesStatus).every(el => el == true)){ // se non sono tutti a true aspetto 1 secondo
-    setTimeout(startServer, 1000);
-  } else {
-    // START LISTENING
+  // START LISTENING
+  process.on('couchbase_vasp_connected', function(){
     const port = config.get('configuration.port');
     server = app.listen(port, () => {
       console.log('////////////////////////////////////////////////////////');
       console.log(`// VASP listening on port ${port} in localhost        //`);
       console.log('////////////////////////////////////////////////////////');
     });
-  }
+    return true;
+  })
 };
 
 module.exports = {
   startServer,
+  gracefulStop
 }
 
 ////////////////// END SERVER START ///////////////////

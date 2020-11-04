@@ -13,7 +13,7 @@
   "dependencies": {
     "chai": "^4.2.0",
     "config": "^3.3.2",
-    "couchbase": "^3.0.6",
+    "couchbase": "^2.6.11",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mocha": "^3.5.3",

@@ -1,20 +1,36 @@
 var expect    = require("chai").expect;
-var streetsController = require("../app/API-PUBBLICHE/controllers/streetsController.js");
+const config = require('config');
 var main = require('../main.js');
 describe("VASP API", function(){
 
-    describe("Opening connection with couchbase", function(){
-        it("Controllo che la connessione sia aperta correttamente", function(){
-            expect(main.startServer()).to.be.true;
+    describe(`[Couchbase VASP] Opening connection with couchbase on ${config.get('couchbase_vasp.connectionString')}`, function(){
+        it("[Couchbase VASP] Controllo che la connessione sia aperta correttamente", function(){
+            //connessione al bucket di couchbase
+            process.on('couchbase_vasp_connected', function(){
+                expect(main.startServer()).to.be.true;
+            });
         })
     })
 
-    describe("VASP streets controller", function() {
-        it("Controlla se quella strada esiste", function() {
-            var idCmn = "cmn:12345";
-            var street = streetsController.getStreetsByCmn(idCmn);
+    //import streets tests
+    require('./streets/streets.js');
+    
 
-            expect(street).to.deep.equal({"name": "Barconcelli", "lunghezza": 10000, "classe": "I"});
-        });
-    });
+    describe(`[Couchbase VASP] Closing the connection with couchbase on ${config.get('couchbase_vasp.connectionString')}`, function(){
+        it("[Couchbase VASP] Chiusura dei processi", function(){
+            // process.on('SIGINT', main.gracefulStop())
+            // if(true){
+            //     expect(true).to.be.true;
+            // }else{
+            //     this.skip;
+            // } // alla chiusura del processo
+
+            // if(process.on('SIGTERM', main.gracefulStop())){
+            //     expect(true).to.be.true;
+            // }else{
+            //     this.skip;
+            // }
+            this.skip;
+        })
+    })
 });
