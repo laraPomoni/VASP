@@ -9,8 +9,8 @@
     },
 	"couchbase_vasp" : {
 		"connectionString" : "couchbase://localhost",
-		"username" : "LaraPomoni",
-		"password" : "Pomoni01?",
-		"bucket_name" : "VASP"
+		"username" : "",
+		"password" : "",
+		"bucket_name" : ""
 	}
 }
