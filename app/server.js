@@ -2,7 +2,7 @@ var express = require("express");
 var app = express();
 const streets = require('./API-PUBBLICHE/streets.js');
 
-app.use("/streets", streets);
+app.use("/api-public/streets", streets);
 
 app.get("/numberValidator", function(req, res) {
 

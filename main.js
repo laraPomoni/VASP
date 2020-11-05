@@ -5,7 +5,7 @@ const passport = require("passport");
 const {BasicStrategy} = require("passport-http");
 const auth = require('./middleware/auth');
 const app = express();
-const streets = require('./app/API-PUBBLICHE/streets.js');
+const server = require('./app/server.js');
 
 /////////////////////// I'M ALIVE ////////////////////
 
@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
 
 /////////////////////// ROUTING ////////////////////
 
-app.use('/api/street', streets);
+app.use('/v1/', server);
 
 //////////////////// END ROUTING ///////////////////
 
@@ -48,8 +48,8 @@ function startServer(){ // quando mi sono collegato al bucket metto il server in
       console.log('////////////////////////////////////////////////////////');
       console.log(`// VASP listening on port ${port} in localhost        //`);
       console.log('////////////////////////////////////////////////////////');
+      return true;
     });
-    return true;
   })
 };
 
