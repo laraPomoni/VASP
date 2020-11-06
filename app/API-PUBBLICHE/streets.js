@@ -19,7 +19,7 @@ router.get('/:id', (req, res, next) =>{
 
 //CREATE - POST create a new street
 router.post('/', (req, res, next) =>{
-    return streetsController.createStreet(req.body)
+    return streetsController.create(req.body)
 	.then(result => {
 		if(result.code == 200){
 			res.status(200);

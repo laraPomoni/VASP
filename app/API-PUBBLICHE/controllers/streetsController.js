@@ -2,6 +2,7 @@ const couchbase = require('../../../models/couchbaseVasp');
 const { N1qlQuery } = require('couchbase');
 const { STREET_TYPE } = require('../../../assets/document-type.js');
 const { generateId } = require('../../../utils/ids');
+const moment = require('moment');
 const CREATED_BY = "api-public"
 
 function getById(cmnId){
@@ -12,7 +13,7 @@ function getAll(){
     return {"name": "Barconcelli", "lunghezza": 10000, "classe": "I"};
 }
 
-function createStreet(body){
+function create(body){
     let uuid = generateId(STREET_TYPE);
 	let street = {
 		channels: body.channel,
@@ -24,10 +25,30 @@ function createStreet(body){
         name: body.name,
         length: body.streetLength,
         class: body.class, //classe di transibilità
-
+        departure: {
+            name: body.departure.name,
+            address: body.departure.address,
+            city: body.departure.city,
+            province: body.departure.province,
+            zipcode: body.departure.zipcode
+        },
+        arrival: {
+            name: body.arrival.name,
+            address: body.arrival.address,
+            city: body.arrival.city,
+            province: body.arrival.province,
+            zipcode: body.arrival.zipcode
+        },
+        year: body.year,
+        lengthMeters: body.lengthMeters,
+        description: body.description,
+        status: body.status,
+        dateOpening: moment(body.dateOpening).format('DD-MM-YYYY hh-mm-ss'),
+        dateClosure: moment(body.dateClosure).format('DD-MM-YYYY hh-mm-ss'),
+        class: body.class //classe di transibilità, va da I a III
     }
 
-    return couchbase.insert(uuid, movement)
+    return couchbase.insert(uuid, street)
     .then(result => {
         return uuid;
     })
@@ -40,5 +61,5 @@ function createStreet(body){
 module.exports = {
     getById,
     getAll,
-    createStreet
+    create
 }
