@@ -5,7 +5,7 @@ const passport = require("passport");
 const {BasicStrategy} = require("passport-http");
 const auth = require('./middleware/auth');
 const app = express();
-const server = require('./app/server.js');
+let server = require('./app/server.js');
 
 /////////////////////// I'M ALIVE ////////////////////
 
@@ -37,20 +37,18 @@ app.use(function(req, res, next) {
 /////////////// END ERROR HANDLING //////////////////
 
 
-
+process.on('couchbase_vasp_connected', startServer)
 //////////////////// SERVER START ///////////////////
 
 function startServer(){ // quando mi sono collegato al bucket metto il server in ascolto
   // START LISTENING
-  process.on('couchbase_vasp_connected', function(){
-    const port = config.get('configuration.port');
+    let port = config.get('configuration.port');
     server = app.listen(port, () => {
       console.log('////////////////////////////////////////////////////////');
-      console.log(`// VASP listening on port ${port} in localhost        //`);
+      console.log(`// VASP listening on port ${port} in localhost           //`);
       console.log('////////////////////////////////////////////////////////');
       return true;
     });
-  })
 };
 
 module.exports = {

@@ -8,7 +8,7 @@ const couchbase = require("../../models/couchbaseVasp.js");
 router.get('/', (req, res, next) =>{
 
     res.status(200);
-    res.send(data);
+    res.send('I\'m alive');
 })
 
 //GET BY ID

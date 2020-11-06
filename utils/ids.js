@@ -1,7 +1,7 @@
-const uuidv4 = require('uuid');
+const uuid = require('uuid');
 
 function generateId(resourceType) {
-	return resourceType+':'+uuidv4();
+	return resourceType+':'+uuid.v4();
 }
 
 module.exports = {

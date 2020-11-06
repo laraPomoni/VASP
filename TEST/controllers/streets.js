@@ -25,7 +25,7 @@ describe("[Couchbase VASP] VASP streets controller", function(){
     describe("[Couchbase VASP] Insert a new street", function() {
         it("returns status 200", function(done) {
             chai.request(server)
-              .post('/api/street/')
+              .post('/api-public/streets')
               .end((err, res) => {
                   if(err) console.log(err);
                     res.should.have.status(200);
