@@ -16,15 +16,13 @@ function getAll(){
 function create(body){
     let uuid = generateId(STREET_TYPE);
 	let street = {
-		channels: body.channel,
+		channels: body.channels,
 		type: STREET_TYPE,
 		log: {
 			createdBy: CREATED_BY,
 			createdDate: new Date(),
 		},
         name: body.name,
-        length: body.streetLength,
-        class: body.class, //classe di transibilità
         departure: {
             name: body.departure.name,
             address: body.departure.address,

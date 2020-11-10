@@ -19,6 +19,7 @@ router.get('/:id', (req, res, next) =>{
 
 //CREATE - POST create a new street
 router.post('/', (req, res, next) =>{
+	console.log("entra")
     return streetsController.create(req.body)
 	.then(result => {
 		if(result.code == 200){
@@ -26,7 +27,7 @@ router.post('/', (req, res, next) =>{
 			res.json(result);
 		}else throw result
 	})
-	.catch(err => { next(err); });
+	.catch(err => { return err; });
 })
 
 module.exports = router;

@@ -44,9 +44,9 @@ function startServer(){ // quando mi sono collegato al bucket metto il server in
   // START LISTENING
     let port = config.get('configuration.port');
     server = app.listen(port, () => {
-      console.log('////////////////////////////////////////////////////////');
-      console.log(`// VASP listening on port ${port} in localhost           //`);
-      console.log('////////////////////////////////////////////////////////');
+      // console.log('////////////////////////////////////////////////////////');
+      // console.log(`// VASP listening on port ${port} in localhost           //`);
+      // console.log('////////////////////////////////////////////////////////');
       return true;
     });
 };
