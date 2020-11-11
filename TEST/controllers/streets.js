@@ -9,12 +9,11 @@ const request = require('request');
 
 let streetBody = {
     channels: ["authority:1"],
-    type: "street",
     log: {
         createdBy: "api-public",
         createdDate: "2020-11-06"
     },
-    name: "Strada Barconcelli",
+    //name: "Strada Barconcelli",
     class: 1, //classe di transibilità
     departure: {
         name: "Loc. Giabbio",
@@ -39,28 +38,27 @@ let streetBody = {
   }
 
 describe("[Couchbase VASP] VASP streets controller", function(){
-    // describe("[Couchbase VASP] Get street by ID", function() {
-    //     it("returns status 200 and valid street", function(done) {
-    //         chai.request(server)
-    //           .get('/api-public/streets')
-    //           .end((err, res) => {
-    //               if(err) console.log(err);
-    //                 res.should.have.status(200);
-    //                 res.body.should.be.a('object');
-    //             done();
-    //           });
-    //     });
-    // });
+    describe("[Couchbase VASP] Get all streets ", function() {
+        it("returns status 200 and valid street", function(done) {
+            axios.get('http://localhost:3005/v1/api-public/streets')
+            .then(result => {
+                expect(result.status).to.equal(200);
+                result.data.should.be.a('object');
+                done()
+            })
+            .catch(err => {
+                console.log(err);
+                done(err);
+            })
+        });
+    });
 
     describe("[Couchbase VASP] Insert a new street", function() {
         it("returns status 200", function(done) {
             axios.post('http://localhost:3005/v1/api-public/streets', streetBody)
             .then(result => {
-                result.statusCode.should.be(200);
+                expect(result.status).to.equal(200);
                 result.data.should.be.a('object');
-
-                console.log(result);
-
                 done()
             })
             .catch(err => {

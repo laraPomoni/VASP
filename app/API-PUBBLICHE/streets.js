@@ -1,8 +1,9 @@
-
 const express = require("express");
+const root = require('app-root-path');
 const streetsController = require('./controllers/streetsController');
 const router = express.Router();
-const couchbase = require("../../models/couchbaseVasp.js");
+const couchbase = require(root+"/models/couchbaseVasp.js");
+const {validatorsSchema} = require(root+"/utils/validators/streetsValidator.js")
 var bodyParser = require('body-parser')
 
 router.use(bodyParser.json())
@@ -21,7 +22,7 @@ router.get('/:id', (req, res, next) =>{
 })
 
 //CREATE - POST create a new street
-router.post('/', (req, res, next) =>{
+router.post('/', validatorsSchema, (req, res, next) =>{
     return streetsController.create(req.body)
 	.then(result => {
 		if(result){

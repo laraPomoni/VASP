@@ -41,16 +41,14 @@ function create(body){
         lengthMeters: body.lengthMeters,
         description: body.description,
         status: body.status,
-        dateOpening: moment(body.dateOpening).format('DD-MM-YYYY hh-mm-ss'),
-        dateClosure: moment(body.dateClosure).format('DD-MM-YYYY hh-mm-ss'),
+        dateOpening: moment(body.dateOpening),
+        dateClosure: moment(body.dateClosure),
         class: body.class //classe di transibilità, va da I a III
     }
-    console.log(street)
 
     return couchbase.insert(uuid, street)
     .then(result => {
-        console.log(result)
-        return uuid;
+        return {id: uuid};
     })
     .catch(err => {
         console.log(err);
