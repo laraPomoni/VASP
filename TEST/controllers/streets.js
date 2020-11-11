@@ -5,6 +5,7 @@ var streetsController = require("../../app/API-PUBBLICHE/controllers/streetsCont
 let server = require('../../app/server.js');
 let should = chai.should();
 const axios = require('axios');
+const request = require('request');
 
 let streetBody = {
     channels: ["authority:1"],
@@ -53,17 +54,19 @@ describe("[Couchbase VASP] VASP streets controller", function(){
 
     describe("[Couchbase VASP] Insert a new street", function() {
         it("returns status 200", function(done) {
-            axios.post(
-                axios.post("http://localhost:3005/v1/api-public/streets", streetBody)
-                .then(result => {
-                    console.log(result)
-                    done();
-                })
-                .catch(err => {
-                    //console.log(err);
-                    done(err);
-                })
-            )
+            axios.post('http://localhost:3005/v1/api-public/streets', streetBody)
+            .then(result => {
+                result.statusCode.should.be(200);
+                result.data.should.be.a('object');
+
+                console.log(result);
+
+                done()
+            })
+            .catch(err => {
+                console.log(err);
+                done(err);
+            })
         });
     });
 });

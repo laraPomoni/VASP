@@ -45,9 +45,11 @@ function create(body){
         dateClosure: moment(body.dateClosure).format('DD-MM-YYYY hh-mm-ss'),
         class: body.class //classe di transibilità, va da I a III
     }
+    console.log(street)
 
     return couchbase.insert(uuid, street)
     .then(result => {
+        console.log(result)
         return uuid;
     })
     .catch(err => {
